@@ -66,6 +66,14 @@
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
             animation: float 6s ease-in-out infinite;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         .avatar::before {
@@ -473,7 +481,9 @@
 <body>
     <div class="container">
         <header>
-            <div class="avatar">LA</div>
+            <div class="avatar">
+                <img src="LOGOME.png" alt="Lahoucineci Amgharyde Logo">
+            </div>
             <h1>Lahoucineci Amgharyde</h1>
             <p class="title">Video Editor & Graphic Designer</p>
             <a href="mailto:zavios@proton.me" class="hire-btn">📧 Hire Me</a>
