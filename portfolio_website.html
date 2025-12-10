@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lahoucineci Amgharyde - Video Editor & Graphic Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: gradientMove 20s ease infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10%, -10%); }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with glassmorphism */
+        header {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .avatar {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .avatar::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(20px);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        h1 {
+            font-size: 56px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .title {
+            font-size: 24px;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .hire-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hire-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .hire-btn:hover::before {
+            left: 100%;
+        }
+        
+        .hire-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Stats with glassmorphism */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stat-box:hover::before {
+            left: 100%;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        
+        section {
+            margin: 120px 0;
+        }
+        
+        h2 {
+            font-size: 42px;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 25px;
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-category {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: rgba(102, 126, 234, 0.1);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+        
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 10px 0;
+            color: #c0c0c0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category li:hover {
+            color: #fff;
+            padding-left: 10px;
+        }
+        
+        .skill-category li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        /* Portfolio section */
+        .portfolio-section-title {
+            color: #667eea;
+            margin: 60px 0 30px;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .portfolio-info {
+            padding: 25px;
+        }
+        
+        .portfolio-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .portfolio-info .channel {
+            color: #667eea;
+            font-size: 15px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .portfolio-info .type {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Contact section */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .contact-details h3 {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .contact-details p {
+            color: #fff;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-details a:hover {
+            color: #764ba2;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 120px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content,
+            .contact-info {
+                padding: 40px 30px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">LA</div>
+            <h1>Lahoucineci Amgharyde</h1>
+            <p class="title">Video Editor & Graphic Designer</p>
+            <a href="mailto:zavios@proton.me" class="hire-btn">📧 Hire Me</a>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Professional Video Editor and Graphic Designer with over 4 years of experience creating engaging content for YouTube channels and digital platforms. With 100+ projects completed, I specialize in both short-form and long-form video content, delivering high-quality edits that captivate audiences and drive engagement.</p>
+                <p>I bring creative vision to life through expert editing, motion graphics, and visual storytelling. My work spans across various content types including educational videos, entertainment, and promotional content for established YouTube channels.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Video Editing</h3>
+                        <ul>
+                            <li>Adobe Premiere Pro</li>
+                            <li>Adobe After Effects</li>
+                            <li>DaVinci Resolve</li>
+                            <li>Final Cut Pro</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Graphic Design</h3>
+                        <ul>
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Illustrator</li>
+                            <li>Figma</li>
+                            <li>Canva Pro</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Specializations</h3>
+                        <ul>
+                            <li>YouTube Content</li>
+                            <li>Short-form Videos</li>
+                            <li>Motion Graphics</li>
+                            <li>Color Grading</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            
+            <h3 class="portfolio-section-title">Short-Form Content</h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/tT-BzWbyqkw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Geography Short</h3>
+                        <p class="channel">Client: @geoalldayog</p>
+                        <span class="type">Short-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/yMplWGXdA3Q" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Geography Tales</h3>
+                        <p class="channel">Client: @GeoGlobeTales</p>
+                        <span class="type">Short-Form</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="portfolio-section-title">Long-Form Content</h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/D6LbEwANCdI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Full-Length Documentary</h3>
+                        <p class="channel">Client: @MrGreaves_</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Q53D6_bgvsw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>America Grows Series</h3>
+                        <p class="channel">Client: @americagrows</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dRQ_wP8jPkM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>UK History Rewind</h3>
+                        <p class="channel">Client: @UKRewindyt</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/T-zJQgilN3A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Automotive History</h3>
+                        <p class="channel">Client: @WheelsHistory</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/0XER7s4xTrE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Sports Analysis</h3>
+                        <p class="channel">Client: @NextGameUp_</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/4PZPrXlFAos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Featured Project</h3>
+                        <p class="channel">Client Channel</p>
+                        <span class="type">Long-Form</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-details">
+                            <h3>Full Name</h3>
+                            <p>Lahoucineci Amgharyde</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>Position</h3>
+                            <p>CEO - Video Editor & Graphic Designer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p><a href="mailto:zavios@proton.me">zavios@proton.me</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Phone Number</h3>
+                            <p><a href="tel:+212609841932">+212 609841932</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Business Address</h3>
+                            <p>Rue de alger, imm. Essadiki<br>Taza 0035000<br>Morocco</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Lahoucineci Amgharyde. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 14px;">Professional Video Editor & Graphic Designer</p>
+        </footer>
+    </div>
+</body>
+</html>
