@@ -45,9 +45,89 @@
             padding: 20px;
         }
         
+        /* Contact Info Section after header */
+        .contact-header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 60px 0 80px;
+        }
+        
+        .contact-header h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .contact-details h3 {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .contact-details p {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-details a:hover {
+            color: #764ba2;
+        }
+        
         /* Header with glassmorphism */
         header {
-            padding: 100px 0 80px;
+            padding: 80px 0 80px;
             text-align: center;
             position: relative;
         }
@@ -105,7 +185,7 @@
         .title {
             font-size: 24px;
             color: #a0a0a0;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             font-weight: 300;
             letter-spacing: 1px;
         }
@@ -374,74 +454,6 @@
             border: 1px solid rgba(102, 126, 234, 0.3);
         }
         
-        /* Contact section */
-        .contact-info {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            padding: 60px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            background: rgba(102, 126, 234, 0.1);
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        .contact-details h3 {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-        
-        .contact-details p {
-            color: #fff;
-            font-size: 17px;
-            font-weight: 400;
-        }
-        
-        .contact-details a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-details a:hover {
-            color: #764ba2;
-        }
-        
         footer {
             text-align: center;
             padding: 60px 0 40px;
@@ -468,12 +480,16 @@
             }
             
             .about-content,
-            .contact-info {
+            .contact-header {
                 padding: 40px 30px;
             }
             
             .stat-number {
                 font-size: 36px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -488,6 +504,68 @@
             <p class="title">Video Editor & Graphic Designer</p>
             <a href="mailto:zavios@proton.me" class="hire-btn">📧 Hire Me</a>
         </header>
+        
+        <!-- Contact Information Section -->
+        <div class="contact-header">
+            <h2>📋 Business Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">👤</div>
+                    <div class="contact-details">
+                        <h3>Full Name</h3>
+                        <p>Lahoucineci Amgharyde</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-details">
+                        <h3>Company</h3>
+                        <p>Lahoucineci Amgharyde - Freelance Services</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email Address</h3>
+                        <p><a href="mailto:zavios@proton.me">zavios@proton.me</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+212609841932">+212 609841932</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Business Address</h3>
+                        <p>Rue de alger, imm. Essadiki<br>Taza 0035000<br>Morocco</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-details">
+                        <h3>Website</h3>
+                        <p><a href="http://lahoucineciamgharyde.online" target="_blank">lahoucineciamgharyde.online</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📘</div>
+                    <div class="contact-details">
+                        <h3>Facebook</h3>
+                        <p><a href="https://web.facebook.com/profile.php?id=100066520026249" target="_blank">Find me on Facebook</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <div class="stats">
             <div class="stat-box">
@@ -640,56 +718,9 @@
             </div>
         </section>
         
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-icon">👤</div>
-                        <div class="contact-details">
-                            <h3>Full Name</h3>
-                            <p>Lahoucineci Amgharyde</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div class="contact-details">
-                            <h3>Position</h3>
-                            <p>CEO - Video Editor & Graphic Designer</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h3>Email Address</h3>
-                            <p><a href="mailto:zavios@proton.me">zavios@proton.me</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <h3>Phone Number</h3>
-                            <p><a href="tel:+212609841932">+212 609841932</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h3>Business Address</h3>
-                            <p>Rue de alger, imm. Essadiki<br>Taza 0035000<br>Morocco</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <footer>
             <p>&copy; 2025 Lahoucineci Amgharyde. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 14px;">Professional Video Editor & Graphic Designer</p>
+            <p style="margin-top: 10px; font-size: 14px;">Professional Video Editor & Graphic Designer | Freelance Services</p>
         </footer>
     </div>
 </body>
