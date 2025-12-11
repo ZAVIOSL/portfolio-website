@@ -287,6 +287,47 @@
             font-size: 13px;
             color: #667eea;
         }
+
+        .etsy-banner {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 80px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .etsy-banner h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .etsy-banner p {
+            color: #b0b0b0;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .etsy-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .etsy-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
+        }
         
         .payment-methods {
             display: grid;
@@ -487,6 +528,8 @@
             .nav-buttons { flex-direction: column; }
             .detail-row { flex-direction: column; gap: 5px; }
             .value { text-align: left; }
+            .etsy-banner { padding: 30px 20px; }
+            .etsy-banner h3 { font-size: 24px; }
         }
     </style>
 </head>
@@ -593,6 +636,31 @@
                     </div>
                 </div>
             </div>
+
+            <h3 class="portfolio-section-title">Thumbnail Design</h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/RIpFYvaFPP8" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Custom Thumbnail Design</h3>
+                        <p class="channel">Client: @TalkinBout-1706</p>
+                        <span class="type">Thumbnail</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/u9Ji_p0ODKk" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Professional Thumbnail</h3>
+                        <p class="channel">Client: @DeCode_Official</p>
+                        <span class="type">Thumbnail</span>
+                    </div>
+                </div>
+            </div>
             
             <h3 class="portfolio-section-title">Long-Form Content</h3>
             <div class="portfolio-grid">
@@ -661,6 +729,12 @@
                         <span class="type">Long-Form</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="etsy-banner">
+                <h3>🎨 Premium Editing Assets</h3>
+                <p>Get access to my professional After Effects bundle - 5000+ premium assets to elevate your videos!</p>
+                <a href="https://www.etsy.com/listing/4394502713/after-effect-assets-5000-mega-bundle" target="_blank" class="etsy-btn">Shop on Etsy 🛒</a>
             </div>
         </section>
         
