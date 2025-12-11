@@ -45,89 +45,9 @@
             padding: 20px;
         }
         
-        /* Contact Info Section after header */
-        .contact-header {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 60px 0 80px;
-        }
-        
-        .contact-header h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: start;
-            gap: 15px;
-            padding: 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            background: rgba(102, 126, 234, 0.05);
-        }
-        
-        .contact-item:hover {
-            background: rgba(102, 126, 234, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        .contact-details h3 {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-        
-        .contact-details p {
-            color: #fff;
-            font-size: 16px;
-            font-weight: 400;
-        }
-        
-        .contact-details a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-details a:hover {
-            color: #764ba2;
-        }
-        
         /* Header with glassmorphism */
         header {
-            padding: 80px 0 80px;
+            padding: 80px 0 60px;
             text-align: center;
             position: relative;
         }
@@ -185,43 +105,67 @@
         .title {
             font-size: 24px;
             color: #a0a0a0;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             font-weight: 300;
             letter-spacing: 1px;
         }
         
-        .hire-btn {
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
         
-        .hire-btn::before {
+        .nav-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
             transition: left 0.5s;
         }
         
-        .hire-btn:hover::before {
+        .nav-btn:hover::before {
             left: 100%;
         }
         
-        .hire-btn:hover {
+        .nav-btn:hover {
             transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .nav-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-btn.primary:hover {
             box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
         }
         
@@ -284,6 +228,7 @@
         
         section {
             margin: 120px 0;
+            scroll-margin-top: 20px;
         }
         
         h2 {
@@ -454,6 +399,89 @@
             border: 1px solid rgba(102, 126, 234, 0.3);
         }
         
+        /* Contact Section */
+        .contact-header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-intro p {
+            color: #888;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .contact-details h3 {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .contact-details p {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-details a:hover {
+            color: #764ba2;
+        }
+        
         footer {
             text-align: center;
             padding: 60px 0 40px;
@@ -491,6 +519,15 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .nav-btn {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -502,70 +539,13 @@
             </div>
             <h1>Lahoucineci Amgharyde</h1>
             <p class="title">Video Editor & Graphic Designer</p>
-            <a href="mailto:zavios@proton.me" class="hire-btn">📧 Hire Me</a>
-        </header>
-        
-        <!-- Contact Information Section -->
-        <div class="contact-header">
-            <h2>📋 Business Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">👤</div>
-                    <div class="contact-details">
-                        <h3>Full Name</h3>
-                        <p>Lahoucineci Amgharyde</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">💼</div>
-                    <div class="contact-details">
-                        <h3>Company</h3>
-                        <p>Lahoucineci Amgharyde - Freelance Services</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <div class="contact-details">
-                        <h3>Email Address</h3>
-                        <p><a href="mailto:zavios@proton.me">zavios@proton.me</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <div class="contact-details">
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+212609841932">+212 609841932</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h3>Business Address</h3>
-                        <p>Rue de alger, imm. Essadiki<br>Taza 0035000<br>Morocco</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">🌐</div>
-                    <div class="contact-details">
-                        <h3>Website</h3>
-                        <p><a href="http://lahoucineciamgharyde.online" target="_blank">lahoucineciamgharyde.online</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📘</div>
-                    <div class="contact-details">
-                        <h3>Facebook</h3>
-                        <p><a href="https://web.facebook.com/profile.php?id=100066520026249" target="_blank">Find me on Facebook</a></p>
-                    </div>
-                </div>
+            
+            <div class="nav-buttons">
+                <a href="#about" class="nav-btn">📖 About Me</a>
+                <a href="#portfolio" class="nav-btn">🎬 Portfolio</a>
+                <a href="#contact" class="nav-btn primary">💬 Contact</a>
             </div>
-        </div>
+        </header>
         
         <div class="stats">
             <div class="stat-box">
@@ -718,9 +698,68 @@
             </div>
         </section>
         
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-header">
+                <div class="contact-intro">
+                    <p>Ready to bring your vision to life? Let's connect and discuss your project.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:zavios@proton.me">zavios@proton.me</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+212609841932">+212 609-841-932</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h3>Website</h3>
+                            <p><a href="http://lahoucineciamgharyde.online" target="_blank">lahoucineciamgharyde.online</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📘</div>
+                        <div class="contact-details">
+                            <h3>Facebook</h3>
+                            <p><a href="https://web.facebook.com/profile.php?id=100066520026249" target="_blank">Connect on Facebook</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Taza, Morocco</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>Services</h3>
+                            <p>Freelance Video Editing & Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <footer>
             <p>&copy; 2025 Lahoucineci Amgharyde. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 14px;">Professional Video Editor & Graphic Designer | Freelance Services</p>
+            <p style="margin-top: 10px; font-size: 14px;">Professional Video Editor & Graphic Designer</p>
         </footer>
     </div>
 </body>
